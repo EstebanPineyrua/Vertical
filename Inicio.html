@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Acceso privado</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: sans-serif;
+      background: #f0f0f0;
+      text-align: center;
+      margin-top: 100px;
+      font-size: 16px;
+    }
+
+    input, select, button {
+      padding: 10px;
+      margin: 5px;
+      font-size: 16px;
+      max-width: 90vw;
+      width: 100%;
+    }
+
+    .box {
+      background: white;
+      padding: 30px;
+      display: inline-block;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #999;
+      max-width: 95vw;
+      width: 400px;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 20px;
+        margin-top: 50px;
+      }
+
+      input, select, button {
+        font-size: 20px;
+        padding: 12px;
+      }
+
+      .box {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>🔒 Acceso solo personal autorizado</h2>
+    <label for="stock">¿A qué stock querés acceder?</label><br>
+    <select id="stock">
+      <option value="hard">HARD</option>
+      <option value="antiparras">ANTIPARRAS</option>
+      <option value="cascos">CASCOS</option>
+    </select>
+    <br>
+    <input type="password" id="password" placeholder="Ingresá la contraseña">
+    <br>
+    <button onclick="verificar()">Entrar</button>
+    <p id="mensaje" style="color: red;"></p>
+  </div>
+
+  <script>
+    function verificar() {
+      const clave = document.getElementById("password").value;
+      const stock = document.getElementById("stock").value;
+
+      if (clave === "meki") {
+        if (stock === "hard") {
+          window.location.href = "hard.html";
+        } else if (stock === "antiparras") {
+          window.location.href = "antiparras.html";
+        }
+          else if (stock === "cascos") {
+          window.location.href = "cascos.html";
+        }
+      } else {
+        document.getElementById("mensaje").textContent = "Contraseña incorrecta";
+      }
+    }
+  </script>
+</body>
+</html>
