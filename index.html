@@ -67,6 +67,7 @@
       <option value="hard">HARD</option>
       <option value="antiparras">ANTIPARRAS</option>
       <option value="cascos">CASCOS</option>
+      <option value="termica">TERMICAS</option>
     </select>
     <br>
     <input type="password" id="password" placeholder="Ingresá la contraseña">
@@ -90,8 +91,12 @@
         }
           else if (stock === "cascos") {
           window.location.href = "cascos.html";
-        }
-      } else {
+          }
+          else if (stock=="termica") {
+            window.location.href = "temicas.html"
+          }
+        } 
+      else {
         document.getElementById("mensaje").textContent = "Contraseña incorrecta";
       }
     }
